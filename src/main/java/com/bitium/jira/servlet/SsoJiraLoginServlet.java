@@ -14,7 +14,9 @@ import com.atlassian.seraph.auth.Authenticator;
 import com.atlassian.seraph.auth.DefaultAuthenticator;
 import com.atlassian.seraph.config.SecurityConfigFactory;
 import com.bitium.jira.config.SAMLJiraConfig;
+import com.bitium.saml.config.SAMLConfig;
 import com.bitium.saml.servlet.SsoLoginServlet;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,8 +25,12 @@ import java.lang.reflect.Method;
 
 public class SsoJiraLoginServlet extends SsoLoginServlet {
 
+	public SsoJiraLoginServlet(SAMLConfig saml2Config) {
+		super(saml2Config);
+	}
+
 	protected void authenticateUserAndLogin(HttpServletRequest request,
-			HttpServletResponse response, String username)
+											HttpServletResponse response, String username)
 			throws Exception {
 
 		Authenticator authenticator = SecurityConfigFactory.getInstance().getAuthenticator();
