@@ -4,7 +4,7 @@
   <plugin-info>
     <description>${project.description}</description>
     <version>${project.version}</version>
-    <application-version min="7.2" max="7.13"/>
+    <application-version min="7.2" max="8.14"/>
     <vendor name="Bitium" url="http://www.bitium.com"/>
     <param name="plugin-icon">images/pluginIcon.png</param>
     <param name="plugin-logo">images/pluginLogo.png</param>

@@ -8,11 +8,16 @@ import java.util.Collection;
 import com.atlassian.crowd.embedded.api.Group;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.security.groups.GroupManager;
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import org.apache.commons.lang.StringUtils;
 
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import com.bitium.saml.X509Utils;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named
 public class ConfigureAction extends JiraWebActionSupport {
 	private static final long serialVersionUID = 1L;
 
@@ -29,13 +34,22 @@ public class ConfigureAction extends JiraWebActionSupport {
 	private String submitAction;
 	private ArrayList<String> existingGroups;
 
+	@ComponentImport
 	private SAMLJiraConfig saml2Config;
+
+	/*
 
 	public void setSaml2Config(SAMLJiraConfig saml2Config) {
 		this.saml2Config = saml2Config;
 	}
+	*/
 
-	public ConfigureAction() {
+	//setter no longer works in v8,
+	// https://developer.atlassian.com/server/confluence/how-do-i-get-a-reference-to-a-component/
+	// https://github.com/aniljaising/atlassian-plugin-tutorial/blob/master/adminUI/src/main/java/com/atlassian/plugins/tutorial/refapp/MyPluginServlet.java
+	@Inject
+	public ConfigureAction(SAMLJiraConfig saml2Config) {
+		this.saml2Config = saml2Config;
 	}
 
 	public String getIdpRequired() {
