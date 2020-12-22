@@ -5,7 +5,7 @@
     <description>${project.description}</description>
     <version>${project.version}</version>
     <application-version min="7.2" max="8.14"/>
-    <vendor name="Bitium" url="http://www.bitium.com"/>
+    <vendor name="Deepnet Security" url="http://www.deepnetsecurity.com"/>
     <param name="plugin-icon">images/pluginIcon.png</param>
     <param name="plugin-logo">images/pluginLogo.png</param>
     <param name="configure.url">/secure/admin/saml2pluginjira.configure.jspa</param>

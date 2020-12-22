@@ -11,6 +11,7 @@ public class SAMLJiraConfig extends SAMLConfig {
 		return "jiraSAML";
 	}
 
+	//This will be called during uploading and installation
 	public SAMLJiraConfig(PluginSettingsFactory pluginSettingsFactory) {
 		setPluginSettingsFactory(pluginSettingsFactory);
 	}
